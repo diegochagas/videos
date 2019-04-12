@@ -4,6 +4,7 @@ import YTSearch from './apis/youtubeSearch';
 import SearchBar from './components/SearchBar';
 import VideoList from './components/VideoList';
 import VideoDetail from './components/VideoDetail';
+import ProgressBar from './components/ProgressBar';
 
 class App extends Component {
   constructor(props){
@@ -20,7 +21,7 @@ class App extends Component {
 
   render() {
     if(this.state.videos.length === 0) {
-			return <div>Loading...</div>;
+			return <ProgressBar />;
 		}
     return (
       <div className="App">
