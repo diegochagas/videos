@@ -1,45 +1,12 @@
-import _ from 'lodash';
-import React, {Component} from 'react';
-import ReacDOM from 'react-dom';
-import YTSearch from 'youtube-api-search';
-import SearchBar from './components/search_bar';
-import VideoList from './components/video_list';
-import VideoDetail from './components/video_detail';
-const API_KEY = 'Credential of YouTube Data API v3 on https://console.cloud.google.com';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-class App extends Component {
-	constructor(props){
-		super(props);
-		this.state = {
-			videos: [],
-			selectedVideo: null
-		};
-		this.videoSearch('surfboards');
-	}
+ReactDOM.render(<App />, document.getElementById('root'));
 
-	videoSearch(term){
-		YTSearch({key: API_KEY, term: term}, videos => {
-			this.setState({
-				videos: videos,
-				selectedVideo: videos[0]
-			});
-		});
-	}
-
-	render(){
-
-		const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 300);
-
-		return (
-			<div>
-				<SearchBar onSearchTermChange={videoSearch}/>
-				<VideoDetail video={this.state.selectedVideo} />
-				<VideoList
-					onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-					videos={this.state.videos}/>
-			</div>
-		);
-	}
-}
-
-ReacDOM.render(<App/>, document.querySelector('.container'));
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
