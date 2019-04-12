@@ -29,11 +29,9 @@ class App extends Component {
         </header>
 				<div className="App-body">
 					<VideoDetail video={this.state.selectedVideo} />
-					<ul className="video-list-container">
-						<VideoList
-							onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-							videos={this.state.videos}/>
-					</ul>
+					<VideoList
+						onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+						videos={this.state.videos}/>
 				</div>
       </div>
     );
@@ -41,7 +39,7 @@ class App extends Component {
 
 	videoSearch(term){
 		YTSearch.get(`/search?part=snippet&q=${term}`)
-			.then(response =>{
+			.then(response => {
 				this.setState({
 					videos: response.data.items,
 					selectedVideo: response.data.items[0]

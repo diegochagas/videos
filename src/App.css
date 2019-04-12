@@ -11,8 +11,7 @@
 
 .App-body {
   display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
 }
 
-.video-list-container {
-  
-}

@@ -1,8 +1,10 @@
 import React from 'react';
+import './VideoList.css';
 import VideoListItem from './VideoItem';
 
 const VideoList = (props) => {
 	const videoItems = props.videos.map(video => {
+    console.log(video.snippet.thumbnails.default.url);
 		return(
 			<VideoListItem 
 				onVideoSelect={props.onVideoSelect}
@@ -11,9 +13,9 @@ const VideoList = (props) => {
 	});
 
 	return(
-		<ul className="col-md-4 list-group">
+    <div className="video-list-container">
 			{videoItems}
-		</ul>
+		</div>
 	);
 }
 
