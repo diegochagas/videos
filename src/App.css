@@ -1,35 +1,18 @@
 .App {
+  margin: 20px;
   text-align: center;
 }
 
 .App-header {
- 
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-.search-bar {
-	margin:  20px;
-	text-align: center;
+.App-body {
+  display: flex;
 }
 
-.search-bar input {
-	width: 75%;
-}
-
-.video-item img{
-	max-width: 64px;
-}
-
-.video-detail .details{
-	margin-top: 10px;
-	padding: 10px;
-	border: 1px solid #ddd;
-	border-radius: 4px;
-}
-
-.list-group-ìtem{
-	cursor: pointer;
-}
-
-.list-group-item:hover{
-	background-color: #eee;
+.video-list-container {
+  
 }

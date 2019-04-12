@@ -1,6 +1,12 @@
-# react-youtube-api
-Test with React using the Youtube Api to show videos. After install all the dependences and start, the access for this test is on http://localhost:8080/.
+# Videos
 
-With this api, you can made researchs for whatever video that you want from Youtube.
+Web app that can made researchs for whatever video that you want from Youtube, based on the course [Modern React with Redux [2019 Update]](https://www.udemy.com/react-redux/) available on Udemy created by [Stephen Grider](https://github.com/StephenGrider).
 
-For this Youtube Api works, you need to have a Google account, access https://console.cloud.google.com, start the YouTube Data API v3, get this credential and change the string of the constant API_KEY in /src/index.js. 
+## Technology used
+
+- React
+- Youtube API
+- Axios
+- HTML
+- CSS
+- JavaScript

@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import _ from 'lodash';
-import YTSearch from 'youtube-api-search';
-import SearchBar from './components/search_bar';
-import VideoList from './components/video_list';
-import VideoDetail from './components/video_detail';
-const API_KEY = 'Credential of YouTube Data API v3 on https://console.cloud.google.com';
+import YTSearch from './apis/youtubeSearch';
+import SearchBar from './components/SearchBar';
+import VideoList from './components/VideoList';
+import VideoDetail from './components/VideoDetail';
 
 class App extends Component {
   constructor(props){
@@ -14,31 +12,43 @@ class App extends Component {
 			videos: [],
 			selectedVideo: null
 		};
-		this.videoSearch('surfboards');
+	}
+	
+	componentDidMount(){
+		this.videoSearch('flowers');
 	}
 
   render() {
-    const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 300);
+    if(this.state.videos.length === 0) {
+			return <div>Loading...</div>;
+		}
     return (
       <div className="App">
         <header className="App-header">
-          <SearchBar onSearchTermChange={videoSearch}/>
+          <SearchBar onSearchTermChange={this.videoSearch} />
         </header>
-				<VideoDetail video={this.state.selectedVideo} />
-				<VideoList
-					onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-					videos={this.state.videos}/>
+				<div className="App-body">
+					<VideoDetail video={this.state.selectedVideo} />
+					<ul className="video-list-container">
+						<VideoList
+							onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+							videos={this.state.videos}/>
+					</ul>
+				</div>
       </div>
     );
   }
 
 	videoSearch(term){
-		YTSearch({key: API_KEY, term: term}, videos => {
-			this.setState({
-				videos: videos,
-				selectedVideo: videos[0]
+		YTSearch.get(`/search?part=snippet&q=${term}`)
+			.then(response =>{
+				this.setState({
+					videos: response.data.items,
+					selectedVideo: response.data.items[0]
+				})
+			}).catch(err => {
+				console.error(err);
 			});
-		});
 	}
 }
 
