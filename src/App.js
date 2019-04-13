@@ -38,7 +38,7 @@ class App extends Component {
     );
   }
 
-	videoSearch(term){
+	videoSearch = term => {
 		YTSearch.get(`/search?part=snippet&q=${term}`)
 			.then(response => {
 				this.setState({

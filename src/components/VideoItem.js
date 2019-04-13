@@ -3,13 +3,13 @@ import './VideoItem.css';
 
 const VideoListItem = ({video, onVideoSelect}) => {
 	return(
-		<div onClick={() => onVideoSelect(video)} className="video-item">
-      <img className="media-object" 
+    <figure  onClick={() => onVideoSelect(video)} className="video-item">
+      <img className="thumbnail"
         src={video.snippet.thumbnails.medium.url}
         alt={video.snippet.title}
       />
-      <div className="video-title">{video.snippet.title}</div>
-		</div>
+      <figcaption className="video-title">{video.snippet.title}</figcaption>
+    </figure>
 	);
 }
 

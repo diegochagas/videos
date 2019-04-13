@@ -4,7 +4,6 @@ import VideoListItem from './VideoItem';
 
 const VideoList = (props) => {
 	const videoItems = props.videos.map(video => {
-    console.log(video.snippet.thumbnails.default.url);
 		return(
 			<VideoListItem 
 				onVideoSelect={props.onVideoSelect}

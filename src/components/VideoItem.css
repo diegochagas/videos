@@ -1,20 +1,26 @@
 .video-item {
-	display: flex;
-	cursor: pointer;
-	border: 1px solid lightgray;
-	margin-left: 20px; 
-	margin-bottom: 10px;
-	padding: 8px;
+  display: table;
+  margin: 0;
+  cursor: pointer;
+  border: 1px solid lightgray;
+  margin: 0 10px 10px 10px;
+  min-width: 230px;
+  padding: 8px;	
 }
 
 .video-item:hover{
-	background-color: #eee;
+  background-color: #eee;
 }
 
-.video-item img {
-	max-width: 64px;
+.video-item .thumbnail {
+  display: table-cell;
+  max-height: 70px;
 }
 
-.video-title {
-	margin-left: 10px;
+.video-item .video-title {
+  display: table-cell;
+  font-size: 12px;
+  padding-left: 10px;
+  vertical-align: top;
+  word-break: break-word;
 }

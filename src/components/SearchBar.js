@@ -9,18 +9,18 @@ class SearchBar extends Component {
 
 	render(){
 		return (
-			<div className="search-bar">
+			<form className="search-bar" onSubmit={this.onSearchSubmit}>
 				<input value={this.state.term}
-					onChange={event => this.onInputChange(event.target.value)}
+					onChange={event => this.setState({term: event.target.value})}
           placeholder="Search video" />
-			</div>
+			</form>
 		);
 	}
-
-	onInputChange(term){
-		this.setState({term});
-		this.props.onSearchTermChange(term);
-	}
+  
+  onSearchSubmit = event => {
+    event.preventDefault();
+    this.props.onSearchTermChange(this.state.term);
+  }
 }
 
 export default SearchBar;

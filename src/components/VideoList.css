@@ -1,4 +1,4 @@
 
 .video-list-container {
-  flex: 2;
+  max-width: 270px;
 }
