@@ -1,8 +1,8 @@
 # Videos
 
-Web app that can made researchs for whatever video that you want from Youtube, based on the course [Modern React with Redux [2019 Update]](https://www.udemy.com/react-redux/) available on Udemy created by [Stephen Grider](https://github.com/StephenGrider).
+Web app that can made researchs for whatever video that you want from Youtube, based on the course [Modern React with Redux [2019 Update]](https://www.udemy.com/react-redux/) available on Udemy created by [Stephen Grider](https://www.udemy.com/react-redux/).
 
-## Technology used
+## Used technologies
 
 - React
 - Youtube API
